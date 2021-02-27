@@ -1,0 +1,30 @@
+'''
+Created on 04-Nov-2017
+
+@author: karthikeyan
+'''
+from multiprocessing import Process
+from com.mycompany.collector.metrics_collector import MetricsCollector
+from com.mycompany.controller import reports_controller
+from com.mycompany.dbutil.reports_dbutil import DBUtil
+from com.mycompany.entities import report_data
+# import all other scripts as well
+
+
+def start_metric_collector(*args):
+    collector = MetricsCollector()
+    collector.do_collect_metrics()
+
+
+def start_flask(*args):
+    reports_controller.start_flask()
+
+
+if __name__ == '__main__':
+    dbutil = DBUtil()
+    dbutil.create_database()
+    report_data.Base.metadata.create_all(dbutil.create_engine())
+    p = Process(target=start_metric_collector, args=("Either so", ))
+    p1 = Process(target=start_flask, args=("or so", ))
+    p.start()
+    p1.start()
