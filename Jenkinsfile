@@ -12,22 +12,24 @@ pipeline {
                 }
             }
             steps {
-                sh "cd system-analyzer"
-                sh 'pip install pybuilder' 
+                sh "pip install -r requirements.txt"
                 sh 'pyb run_unit_tests'
             }
         }
-        // stage('Build'){
+        // stage('Build') { 
+        //     agent {
+        //         docker {
+        //             image 'ubuntu_test_image:test'
+        //             args '-u 0'
+        //         }
+        //     }
         //     steps {
-        //         sh 'make check'
-        //         junit 'reports/**/*.xml' 
+        //         sh "cd system-analyzer"
+        //         sh 'pip install pybuilder' 
+        //         sh 'pyb run_unit_tests'
         //     }
         // }
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'make publish'
-        //     }
-        }
+    }
 
     
 }
