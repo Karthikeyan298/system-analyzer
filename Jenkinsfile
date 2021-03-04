@@ -4,11 +4,6 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git clone 'https://github.com/Karthikeyan298/system-analyzer.git' && cd system-analyzer
-            }
-        }
         stage('Test') { 
             agent {
                 docker {
@@ -16,6 +11,9 @@ pipeline {
                 }
             }
             steps {
+                sh "apk update"
+                sh "apk add git"
+                sh "git clone 'https://github.com/Karthikeyan298/system-analyzer.git' && cd system-analyzer"
                 sh 'pip3 install pybuilder' 
                 sh 'pyb run_unit_tests'
             }
@@ -32,5 +30,5 @@ pipeline {
         //     }
         }
 
-    }
+    
 }
