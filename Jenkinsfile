@@ -12,7 +12,7 @@ pipeline {
                 }
             }
             steps {
-                sh "git clone 'https://github.com/Karthikeyan298/system-analyzer.git' && cd system-analyzer"
+                sh "cd system-analyzer"
                 sh 'pip install pybuilder' 
                 sh 'pyb run_unit_tests'
             }
