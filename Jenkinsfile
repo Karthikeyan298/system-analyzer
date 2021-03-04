@@ -18,17 +18,7 @@ pipeline {
             }
         }
         // stage('Build') { 
-        //     agent {
-        //         docker {
-        //             image 'ubuntu_test_image:test'
-        //             args '-u 0'
-        //         }
-        //     }
-        //     steps {
-        //         sh "cd system-analyzer"
-        //         sh 'pip install pybuilder' 
-        //         sh 'pyb run_unit_tests'
-        //     }
+        //     Add code to build and deploy this
         // }
     }
 
