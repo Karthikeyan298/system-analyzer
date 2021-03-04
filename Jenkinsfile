@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git clone https://github.com/Karthikeyan298/system-analyzer.git && cd system-analyzer
+                git clone 'https://github.com/Karthikeyan298/system-analyzer.git' && cd system-analyzer
             }
         }
         stage('Test') { 
@@ -31,6 +31,6 @@ pipeline {
         //         sh 'make publish'
         //     }
         // }
-        
+
     }
 }
