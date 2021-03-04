@@ -1,0 +1,4 @@
+SQLAlchemy==1.2.19
+psutil==5.7.0
+pybuilder
+flask

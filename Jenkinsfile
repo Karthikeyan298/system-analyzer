@@ -7,6 +7,7 @@ pipeline {
         stage('Test') { 
             agent {
                 docker {
+                    // Build this image using the Dockerfile.base
                     image 'ubuntu_test_image:test'
                     args '-u 0'
                 }
