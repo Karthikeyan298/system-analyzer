@@ -27,7 +27,7 @@ def set_properties(project):
     project.set_property("coverage_exceptions", ["com.mycompany.service.report_service", "com.mycompany.dbutil.reports_dbutil", "com.mycompany.start_system_analyzer"])
     project.build_depends_on("mock")
     project.depends_on("mysqlclient")
-    project.depends_on("MySQL-python")
+    project.depends_on("mysql-connector")
     project.depends_on("SQLAlchemy")
     project.depends_on("psutil")
     
